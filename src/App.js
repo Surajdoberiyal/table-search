@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./components/login/login";
+import "./App.css";
+import Tables from "./components/Table/Tables";
+import { Users } from "./components/Table/Users";
+import { useState } from "react";
 
 function App() {
+  const [query, setQuery] = useState("");
+  const keys = ["first_name", "last_name", "email"];
+
+  const search = (data) => {
+    return data.filter((elem) =>
+      keys.some((key) => elem[key].toLowerCase().includes(query))
+    );
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="app_container">
+      <div className="app">
+        <input
+          className="search"
+          placeholder="Search..."
+          onChange={(e) => setQuery(e.target.value.toLowerCase())}
+        />
+        <Tables data={search(Users)} />
+      </div>
+      </div>
+    </>
   );
 }
 
