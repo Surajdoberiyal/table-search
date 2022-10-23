@@ -8,6 +8,7 @@
       align-items: center;
 
 }
+/* Login card css start here */
 
 .formCard{
     height: 48vh;
@@ -27,6 +28,7 @@
 .formCard h2{
    text-align: center;
 }
+/* Login btn css start here */
 .submitBtn{
     width: 100% !important;
     background-color: rgb(1, 183, 171) !important;
